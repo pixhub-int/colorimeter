@@ -1,0 +1,84 @@
+.Document,
+.Page {
+	height: 100%;
+}
+
+.Page {
+	background-color: #fff;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEX////z8/P5ZQ8vAAAAD0lEQVQI12Ng+I8V4RIGAH6/D/EIQoVRAAAAAElFTkSuQmCC");
+	background-position: 50% 50%;
+	margin: 0;
+	position: relative;
+}
+
+.Page:before {
+	content: "";
+	box-sizing: border-box;
+	position: fixed;
+	top: 2vh;
+	bottom: 2vh;
+	right: 2vw;
+	left: 2vw;
+	border: 10px dashed #fff;
+	border-radius: 10vw;
+	z-index: 1;
+	
+	opacity: 0;
+	visibility: hidden;
+	transition: .2s;
+}
+.Page:after {
+	content: "Кидайте картинку сюда!";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.2);
+	text-align: center;
+	font-size: 10vh;
+	font-family: 'Segoe ui', sans-serif;
+	line-height: 95vh;
+	font-weight: bold;
+	color: #fff;
+	
+	opacity: 0;
+	visibility: hidden;
+	transition: .2s;
+}
+.Page--onDragOver:before,
+.Page--onDragOver:after {
+	opacity: 1;
+	visibility: visible;
+}
+
+.Viewer {
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+.Viewer__box {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.Img,
+.Img__wrapper {
+	display: inline-block;
+	vertical-align: middle;
+}
+.Img {
+	image-rendering: -moz-crisp-edges;
+	image-rendering: pixelated;
+}
+.Img__wrapper {
+	display: inline-block;
+}
+
+
+.Input {
+	position: absolute;
+	visibility: hidden;
+	top: 0;
+}
