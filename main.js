@@ -80,7 +80,7 @@ document.body.addEventListener('dblclick', function () {
 Input.addEventListener('change', onFile);
 
 // по вставке из буфера
-Paste.init(document.body).addEventListener('pasteImage', function (e) {
+Paste.init(document.body)[0].addEventListener('pasteImage', function (e) {
 		var src = URL.createObjectURL(e.detail.blob);
 		
 		document.querySelector('.Img').src = src;
