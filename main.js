@@ -62,22 +62,29 @@
 document.body.addEventListener('drop', function (e) {
 	onFile(e);
 	this.classList.remove('Page--onDragOver');
-}, false);
+});
 document.body.addEventListener('dragover', function handleDragOver(e) {
 	e.stopPropagation();
 	e.preventDefault();
 	e.dataTransfer.dropEffect = 'copy';
 	this.classList.add('Page--onDragOver');
-}, false);
+});
 document.body.addEventListener('dragleave', function handleDragOver(e) {
 	this.classList.remove('Page--onDragOver');
-}, false);
+});
 
 // по двойному нажатию
 document.body.addEventListener('dblclick', function () {
 	Input.click();
 });
 Input.addEventListener('change', onFile);
+
+// по вставке из буфера
+Paste.init(document.body).addEventListener('pasteImage', function (e) {
+		var src = URL.createObjectURL(e.detail.blob);
+		
+		document.querySelector('.Img').src = src;
+});
 
 // открытие файла
 function onFile (e) {
