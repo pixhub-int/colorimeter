@@ -61,7 +61,10 @@ var Paste = (function () {
 			elems = document.querySelectorAll(elems);
 		}
 		else if (!elems.isArray) {
-			elems = [].push(elems);
+			var tmp = [];
+
+			tmp.push(elems);
+			elems = tmp;
 		};
 
 		[].forEach.call(elems, function (elem) {
